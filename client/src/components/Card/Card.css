@@ -1,0 +1,9 @@
+.card {
+    border: 2px solid black;
+    width: 400px;   
+}
+
+.img-card {
+    border: 2px solid blue;
+    margin-top: 15px;
+}

@@ -1,0 +1,29 @@
+/* .home {
+    background-image: '../../assets/homeback3.jpg';
+    background-size: 100%;
+} */
+
+
+.paginated {
+    padding: 30px;
+}
+
+
+.dog-cards {    
+    /* text-align: center;
+    display: grid; */
+    /* grid-template-columns: repeat(3, 1fr);
+    
+    grid-column-gap: 10px;
+    row-gap: 50px; */
+    column-gap: 100px;
+    margin-left: 60%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.link-card {
+    width: 400px;
+}

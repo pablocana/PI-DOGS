@@ -1,0 +1,19 @@
+
+
+.link-social{
+    margin: 0 15px;
+    font-size: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;       
+}
+
+
+/* 
+//VER BIEN 
+
+.link-social button:hover {
+    background-color: #3f7284;
+    transition: 0.3s;
+    color: rgb(255, 217, 2);
+} */

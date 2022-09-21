@@ -1,0 +1,10 @@
+(v1) ARCHIVO DE ACLARACIONES:
+
+
+created_Db => defaultValue => tds los que yo cree se van a crear con esta propiedad,
+esta es la forma mas eficiente, nos permite hacer un llamado solo a los q estan en DB.
+Al hacer la distincion con esta prop, es mas facil acceder al elemento que cree en la DB.
+
+-Sequelize te genera un ID por defecto cuando vos no le pasas como queres que sea.
+
+/FILTROS las buenas practicas dicen que es mejor hacer los filtros en el backend. (aca los hacemos en el front)
