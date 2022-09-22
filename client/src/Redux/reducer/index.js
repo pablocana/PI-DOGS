@@ -79,16 +79,15 @@ function rootReducer (state = initialState, action){
                 }
         case 'SORT_BY_WEIGHT':
             let weightBreeds = state.allBreeds;
-            weightBreeds = weightBreeds.filter(e => e.weight.length > 3)
-            weightBreeds.weight = weightBreeds.weight.split(' - ');
+            weightBreeds = weightBreeds.filter(e => e.weight.length > 3).map(e=> e.weightsplit(' - '));
             //weightBreeds = weightBreeds.map(e => [e.weight[0]*1,e.weight[1]*1])
                 
                 if(action.payload === 'MAX') {
                     weightBreeds = weightBreeds.sort(function(a, b){
-                        if(a.weight[1] > b.weight[1]){
+                        if(parseInt(a.weight[1]) > parseInt(b.weight[1])){
                             return 1;
                         }
-                        if(b.weight[1] > a.weight[1]){
+                        if(parseInt(b.weight[1]) > parseInt(a.weight[1])){
                             return -1;
                         }
                         return 0        
@@ -97,10 +96,10 @@ function rootReducer (state = initialState, action){
 
                 if(action.payload === 'MIN'){
                     weightBreeds = weightBreeds.sort(function(a, b) {
-                        if(a.weight[0] > b.weight[0]){
+                        if(parseInt(a.weight[0]) > parseInt(b.weight[0])){
                             return -1;
                         }
-                        if(b.weight[0] > a.weight[0]){
+                        if(parseInt(b.weight[0]) > parseInt(a.weight[0])){
                             return 1;
                         }
                         return 0;

@@ -57,7 +57,7 @@ export default function Home() {
     };
 
 
-//FILTERS AND SORTERS: // corregir filtrado en DB cn sort.
+//FILTERS: // corregir filtrado en DB cn sort.
 
 
     function handleOriginFilter(e) {
@@ -71,6 +71,7 @@ export default function Home() {
         setCurrentPage(1);
     }
 
+// SORTERS:
 
     function handleSortName(e) {
         e.preventDefault();
@@ -82,8 +83,9 @@ export default function Home() {
     function handleSortWeight(e) {
         e.preventDefault();
         dispatch(sortBreedsByWeight(e.target.value));
+        console.log(e.target.value)
         setCurrentPage(1);
-        setRender(`Sort ${e.target.value}`)
+        //setRender(`Sort ${e.target.value}`)
     }
 
         return(
