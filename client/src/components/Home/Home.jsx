@@ -2,7 +2,7 @@ import "./Home.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBreeds, getTemps, filterBreedsByOrigin, filterBreedsByTemps, sortBreedsByName } from "../../Redux/actions";
+import { getBreeds, getTemps, filterBreedsByOrigin, filterBreedsByTemps, sortBreedsByName, sortBreedsByWeight } from "../../Redux/actions";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Paginated from "../Paginated/Paginated";
@@ -22,7 +22,7 @@ export default function Home() {
     
     //BREEDS STATE
     const allBreeds = useSelector((state) => state.breeds); // => es lo mismo que el mapStateToProps.
-    const temperaments = useSelector((state) => state.temperaments);
+    
 
     // const [temps, setTemps] = useState([]);
     const [render, setRender] = useState(''); // estado Render.
@@ -48,19 +48,6 @@ export default function Home() {
     doguis();
     },[dispatch]);                    // para q no se genere un loop inf.
 
-    // GET TEMPS.
-    useEffect(() =>{
-        const temps = async () => {
-            await dispatch(getTemps());
-            //setTemps()
-            //console.log(temperaments)
-        }
-        console.log(temperaments)
-        temps();
-        console.log(temperaments)
-        //setRender('')
-        //dispatch(getTemps());
-    }, [dispatch])
 
 
 // RELOAD DOGS
@@ -68,9 +55,6 @@ export default function Home() {
         e.preventDefault();
         dispatch(getBreeds());
     };
-
-
-//    
 
 
 //FILTERS AND SORTERS: // corregir filtrado en DB cn sort.
@@ -95,6 +79,12 @@ export default function Home() {
         setRender(`Sort ${e.target.value}`) // me modifica el estado local y se rerenderiza. //VER DE QUE OTRA FORMA PUEDO RERENDER.
     }
 
+    function handleSortWeight(e) {
+        e.preventDefault();
+        dispatch(sortBreedsByWeight(e.target.value));
+        setCurrentPage(1);
+        setRender(`Sort ${e.target.value}`)
+    }
 
         return(
             <div className="home">
@@ -110,13 +100,12 @@ export default function Home() {
                 <div className="sorter">
                     <SortBar 
                         handleSortName={handleSortName}
-                        /* handleSortWeight={handleSortWeight} *//>                                                     
+                        handleSortWeight={handleSortWeight}/>                                                     
                 </div> 
                 <div className="filter">
                     <FilterBar 
                         handleOriginFilter={handleOriginFilter}
-                        handleTempsFilter={handleTempsFilter} 
-                        temperament={temperaments} />                                                     
+                        handleTempsFilter={handleTempsFilter} />                                                     
                 </div>    
                 <div className="paginated" >
                     <Paginated 

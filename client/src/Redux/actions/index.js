@@ -50,10 +50,10 @@ export function sortBreedsByName(payload) {
 }
 
 // me falta el de weight (modificar el siguiente)
-export function sortBreedsByStatus(payload){
+export function sortBreedsByWeight(payload){
     return {
-        type: 'SORT_BY_STATUS',
-        payload: payload,
+        type: 'SORT_BY_WEIGHT',
+        payload
     }
 }
 
