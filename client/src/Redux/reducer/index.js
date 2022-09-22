@@ -79,7 +79,7 @@ function rootReducer (state = initialState, action){
                 }
         case 'SORT_BY_WEIGHT':
             let weightBreeds = state.allBreeds;
-            weightBreeds = weightBreeds.filter(e => e.weight.length > 3).map(e=> e.weightsplit(' - '));
+            weightBreeds = weightBreeds.filter(e => e.weight.length > 4).map(e=> e.weight.split(' - '));
             //weightBreeds = weightBreeds.map(e => [e.weight[0]*1,e.weight[1]*1])
                 
                 if(action.payload === 'MAX') {
