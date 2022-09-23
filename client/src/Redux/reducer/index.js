@@ -24,12 +24,13 @@ function rootReducer (state = initialState, action){
         case 'FILTER_BY_TEMPS':
             let dogTemps = state.allBreeds;
             dogTemps = dogTemps.filter(e => e.temperament !== undefined); // si el perro no tiene temperamento no lo muestro.
+            //console.log(dogTemps)
 
             let tempFiltered = action.payload === "All Breeds" 
                 ? dogTemps 
                 : dogTemps.filter(dog =>(
                     dog.temperament.includes(action.payload) // si el perro tiene temperamento y el temperamento es igual al que selecciono lo muestro
-                ))
+                ));
 
             return{
                 ...state,
@@ -58,8 +59,8 @@ function rootReducer (state = initialState, action){
                             return -1;
                         }
                         return 0;
-                    })
-                }
+                    });
+                };
 
                 if (action.payload === 'DESC') {
                     sortedBreeds = sortedBreeds.sort(function(a, b) {
@@ -70,42 +71,32 @@ function rootReducer (state = initialState, action){
                             return 1;
                         }
                         return 0;
-                    })
-                }
+                    });
+                };
 
                 return {
                     ...state,
                     breeds: sortedBreeds
                 }
         case 'SORT_BY_WEIGHT':
-            let weightBreeds = state.allBreeds;
-            weightBreeds = weightBreeds.filter(e => e.weight.length > 4).map(e=> e.weight.split(' - '));
+            let weightBreeds = state.allBreeds.filter(e => e.weight.length === 2);    
+            //console.log(weightBreeds)
+            // let weightBreeds = state.allBreeds;
+            // weightBreeds = weightBreeds.filter(e => e.weight.length > 4).map(e=> e.weight.split(' - '));
             //weightBreeds = weightBreeds.map(e => [e.weight[0]*1,e.weight[1]*1])
                 
                 if(action.payload === 'MAX') {
                     weightBreeds = weightBreeds.sort(function(a, b){
-                        if(parseInt(a.weight[1]) > parseInt(b.weight[1])){
-                            return 1;
-                        }
-                        if(parseInt(b.weight[1]) > parseInt(a.weight[1])){
-                            return -1;
-                        }
-                        return 0        
-                    })
-                }
-
+                        return b.weight[1] - a.weight[1];
+                    });
+                };
+                //console.log(weightBreeds)
                 if(action.payload === 'MIN'){
                     weightBreeds = weightBreeds.sort(function(a, b) {
-                        if(parseInt(a.weight[0]) > parseInt(b.weight[0])){
-                            return -1;
-                        }
-                        if(parseInt(b.weight[0]) > parseInt(a.weight[0])){
-                            return 1;
-                        }
-                        return 0;
-                    })        
-                }
-                
+                        return a.weight[0] - b.weight[0];
+                    }) ;       
+                };
+                //console.log(weightBreeds)
             return {
                 ...state,
                 breeds: weightBreeds

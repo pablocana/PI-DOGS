@@ -20,7 +20,7 @@ const getApiInfo = async () => {
         name: element.name,
         image: element.image.url,
         temperament: element.temperament,
-        weight: element.weight.metric,      // metric
+        weight: element.weight.metric.split(' - '),      // metric, split => ex: ["a", "b"]
       }
     })
     )

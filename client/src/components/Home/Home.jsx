@@ -83,9 +83,9 @@ export default function Home() {
     function handleSortWeight(e) {
         e.preventDefault();
         dispatch(sortBreedsByWeight(e.target.value));
-        console.log(e.target.value)
+        // console.log(e.target.value)  //para ver si llega el payload
         setCurrentPage(1);
-        //setRender(`Sort ${e.target.value}`)
+        setRender(`Sort ${e.target.value}`)
     }
 
         return(

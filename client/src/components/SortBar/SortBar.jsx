@@ -14,8 +14,8 @@ export default function SortBar({ handleSortName, handleSortWeight }){
             </select>
             <select onChange={(e) => handleSortWeight(e)} className='sort-weight' defaultValue={'DEFAULT'}>
                 <option value='DEFAULT' disabled>Sort By Weight</option>
-                <option value="MAX">max to min </option>
-                <option value="MIN">min to max</option>
+                <option value="MAX">Max to Min </option>
+                <option value="MIN">Min to Max</option>
             </select>
             </div>
         </div>
