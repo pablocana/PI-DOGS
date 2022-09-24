@@ -31,6 +31,9 @@ export default function CreateBreed({ setCurrentPage }){
 function validate(input){
     let errors = {};
 
+    const regexName = /^[a-zA-Z ]+$/;
+    const regexUrl = /(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/i;
+
     if(!input.name){                            // si en mi estado local name=null => en mi object.name= msg.
         errors.name = 'Name is required';
         setButtonEnabled(false);
@@ -67,20 +70,24 @@ function validate(input){
 
 
     function handleSelect(e){
+    //const { value } = e.target;                       // podemos hacer destructuring del e.target, si lo vamos a usar varias veces dentro de la function.
+        if (input.temperament.includes(e.target.value)) // aca decimos que, si mi estado local input.temp... incluye el value, retorne un alert.
+        return alert("You've already selected that temperament");
+        
         setInput({
             ...input,
             temperament: [...input.temperament, e.target.value] // aca me trae lo que ya habia y le concatena el target.value (voy guardando en un arreglo todo lo del select).
         });
         setErrors(validate({
             ...input,
-            [e.target.name] : e.target.value
+            temperament: [...input.temperament, e.target.value],
         }))
     };
 
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log(input);                 // hacemos aca el console.log xq...
+        console.log(input);                  // hacemos aca el console.log xq...
         dispatch(createBreed(input))
         alert("Dog breed successfully created!")
         setInput({
@@ -95,14 +102,21 @@ function validate(input){
         //setCurrentPage(23);
     };
 
-
+    // CLEAR TEMP.
     function handleReset(){
         setInput({
             ...input,
             temperament: []
         });
-
     };
+
+
+    /* const handleDelete = (e) => {
+        setInput({
+        ...input,
+        temperament: input.temperament.filter((c) => c !== e.target.name),
+        });
+    }; */
 
 
 
