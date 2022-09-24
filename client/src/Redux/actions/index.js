@@ -75,10 +75,10 @@ export function searchBreed(name) {
 
 
 
-export function createBreed(payload) {
+export function createBreed(payload) {                             // payload que me llega del front.
     return async function(dispatch) {
-        var json = await axios.post('/breed', payload);
-        return json;
+        var json = await axios.post('http://localhost:3001/dogs/', payload);            // aca le digo que en esta ruta, quiero hacer un post del payload.
+        return json;                                               // no usamos el dispatch.
     }
 }
 
