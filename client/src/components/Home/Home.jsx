@@ -2,7 +2,7 @@ import "./Home.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBreeds, getTemps, filterBreedsByOrigin, filterBreedsByTemps, sortBreedsByName, sortBreedsByWeight } from "../../Redux/actions";
+import { getBreeds, filterBreedsByOrigin, filterBreedsByTemps, sortBreedsByName, sortBreedsByWeight } from "../../Redux/actions";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import Paginated from "../Paginated/Paginated";

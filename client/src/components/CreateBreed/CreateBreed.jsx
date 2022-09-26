@@ -30,17 +30,54 @@ export default function CreateBreed({ setCurrentPage }){
 
 function validate(input){
     let errors = {};
-
     const regexName = /^[a-zA-Z ]+$/;
-    const regexUrl = /(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/i;
+    const regexNumber = /\d\d - \d\d/;
+    //const regexNumberLife_span = /\d\d/;
+    //const regexUrl = /(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/i;
 
-    if(!input.name){                            // si en mi estado local name=null => en mi object.name= msg.
-        errors.name = 'Name is required';
+    if(!input.name /* || input.name !== regexName.test(input.name )*/){                            // si en mi estado local name=null => en mi object.name= msg.
+        errors.name = 'Name is required, please use only letters';
+        setButtonEnabled(false);
+    }else if(!regexName.test(input.name)){
+        errors.name = 'Please, use only letters'
         setButtonEnabled(false);
     } else if (input.name.length < 4) {
         errors.name = 'Name field must be at least 4 characters long';
         setButtonEnabled(false);
-    }    
+    }
+
+    if(!input.height){
+        errors.height = 'Height is required, please use this format: 10 - 99';
+        setButtonEnabled(false);
+    }else if(!regexNumber.test(input.height)){
+        errors.height = 'Please respect the format';
+        setButtonEnabled(false);
+    } else if((input.height[0]+input.height[1]) > (input.height[5]+input.height[6])){
+        errors.height = 'Maximum height must be greater than minimum height';
+        setButtonEnabled(false);
+    }
+
+
+    if(!input.weight){
+        errors.weight = 'Weight is required, please use this format: 01 - 99';
+        setButtonEnabled(false);
+    }else if(!regexNumber.test(input.weight)){
+        errors.weight = 'Please respect the format';
+        setButtonEnabled(false);
+    } else if((input.weight[0]+input.weight[1]) > (input.weight[5]+input.weight[6])){
+        errors.height = 'Maximum weight must be greater than minimum weight';
+        setButtonEnabled(false);
+    }
+    
+
+    /* if(!regexNumberLife_span.test(input.life_span)){
+        errors.life_span = 'Please write a number';
+    } else if(input.life_span > 30) {
+        errors.life_span = 'Life span must be under 30 years';
+    } */
+
+    /* if(!regexUrl.test(input.image))
+        errors.image = 'Wrong format link';  */   
     
 
     if (Object.entries(errors).length === 0) setButtonEnabled(true); // Object.entries me devuelve un array [key,value]
@@ -59,13 +96,13 @@ function validate(input){
             ...input,
             [e.target.name] : e.target.value         // estamos asignandole el valor a la prop e.target.name que corresponda con el name que me pasan.
         });
-        console.log(input);
+        //console.log(input);
         //setRender('');
         setErrors(validate({                         // aca seteamos el estados errors.
             ...input,
             [e.target.name] : e.target.value
         }));
-        console.log(input);
+        //console.log(input);
     };
 
 
@@ -87,7 +124,7 @@ function validate(input){
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log(input);                  // hacemos aca el console.log xq...
+        //console.log(input);                  // hacemos aca el console.log xq...
         dispatch(createBreed(input))
         alert("Dog breed successfully created!")
         setInput({
@@ -130,7 +167,7 @@ function validate(input){
             <div className="create-container">
                 <form onSubmit={(e)=>handleSubmit(e)}>
                     <div>
-                        <label>Name: </label>
+                        <label>*Name: </label>
                         <input 
                             type="text"
                             value={input.name}
@@ -146,28 +183,46 @@ function validate(input){
                         }
                     </div>
                     <div>
-                        <label>Height: </label>
+                        <label>*Height: </label>
                         <input 
                             type="text"
                             value={input.height}
                             name="height"
                             autoComplete="off"
-                            placeholder="00 - 100 cm"
+                            placeholder="10 - 99"
                             onChange={(e)=>handleChange(e)}
                         />
                         <label> cm</label>
+                        {
+                            errors.height && (                               
+                                <p className="error">{errors.height}</p>
+                            )
+                        }
                     </div>
                     <div>
-                        <label>Weight: </label>
+                        <label>*Weight: </label>
                         <input 
                             type="text"
                             value={input.weight}
                             name="weight"
                             autoComplete="off"
-                            placeholder="00 - 100 kg"
+                            placeholder="01 - 99"
                             onChange={(e)=>handleChange(e)}
                         />
+                        {/* <input 
+                            type="number"
+                            value={input.weightmax}
+                            name="weight"
+                            autoComplete="off"
+                            placeholder="00 - 100 kg"
+                            onChange={(e)=>handleChange(e)}
+                        /> */}
                         <label> kg</label>
+                        {
+                            errors.weight && (                                // si errors.name, renderizame un <p> con ese error.
+                                <p className="error">{errors.weight}</p>
+                            )
+                        }
                     </div>
                     <div>
                         <label>Life Span: </label>
@@ -176,10 +231,15 @@ function validate(input){
                             value={input.life_span}
                             name="life_span"
                             autoComplete="off"
-                            placeholder="30 years"
+                            placeholder="30"
                             onChange={(e)=>handleChange(e)}
                         />
                         <label> years</label>
+                        {/* {
+                            errors.life_span && (                               
+                                <p className="error">{errors.life_span}</p>
+                            )
+                        } */}
                     </div>
                     <div>
                         <label>Image: </label>
@@ -191,6 +251,11 @@ function validate(input){
                             placeholder="image"
                             onChange={(e)=>handleChange(e)}
                         />
+                        {/* {
+                            errors.image && (                                // si errors.name, renderizame un <p> con ese error.
+                                <p className="error">{errors.image}</p>
+                            )
+                        } */}
                     </div>
                     <div>
                         <fieldset>
