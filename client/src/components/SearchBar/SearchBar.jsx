@@ -28,7 +28,7 @@ function handleSubmitSearch(e) {
 
     return(
         <div className="search-bar">
-            <h5>Do a search:</h5>
+            <h5 className="search-title">Do a search:</h5>
             <input 
                 type="text" 
                 placeholder="Search Breed..."

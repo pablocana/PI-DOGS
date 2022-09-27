@@ -1,29 +1,103 @@
-/* .home {
-    background-image: '../../assets/homeback3.jpg';
+.home {
+    background-image: url(../../assets/homeback.jpg);
     background-size: 100%;
-} */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    overflow-x: hidden;
+}
 
+.home-title {
+    color:rgba(63, 46, 24, 0.836);
+    font-size: 90px;
+    transform: translateY(-50%);
+    text-shadow: 20px 0px 35px rgb(253, 255, 255), 0px 0px 50px rgb(236, 253, 137);
+    margin-top: 10%;
+    /* margin-left: 30%; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.nav {
+    background-color: rgba(255, 228, 196, 0.582);
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    margin-left:  80px;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.reload {
+    
+    color: inherit;
+    padding: 6px 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    border: 5px solid var(--color);
+    cursor: pointer;
+}
+
+.reload:hover {
+    transform: scale(110%);
+}
+
+.lateral-bar {
+    background-color: rgba(255, 228, 196, 0.582);
+    margin-left: 10px;
+    margin-right: 140vh;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 10px;
+}
+
+.search {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10px;
+    max-width: fit-content;
+}
+
+.sorter {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10px;
+    max-width: fit-content;
+    
+}
+
+.filter {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10px;
+    max-width: fit-content;
+}
 
 .paginated {
+    display: inline-flex;
+    justify-content: end;
+    width: fit-content;
     padding: 30px;
 }
 
 
 .dog-cards {    
-    /* text-align: center;
-    display: grid; */
-    /* grid-template-columns: repeat(3, 1fr);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 50px;
+    margin-left: 20%;
     
-    grid-column-gap: 10px;
-    row-gap: 50px; */
-    column-gap: 100px;
-    margin-left: 60%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: auto;
+    
 }
 
 .link-card {
     width: 400px;
+    text-decoration: none;
+}
+
+.link-card:hover {
+    transform: scale(110%);
 }

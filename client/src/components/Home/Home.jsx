@@ -94,21 +94,23 @@ export default function Home() {
                 <div className="nav">
                     <NavBar/>
                 </div>
-                    <h2>Aca tan los Doguis</h2> 
+                    <h2 className="home-title">Aca tan los Doguis</h2> 
                     <button className="reload" onClick={e => {handleClick(e)}}>Reload Dogs</button>
-                <div className="search">
-                    <SearchBar setCurrentPage={setCurrentPage} />
+                <div className="lateral-bar">
+                    <div className="search">
+                        <SearchBar setCurrentPage={setCurrentPage} />
+                    </div>
+                    <div className="sorter">
+                        <SortBar 
+                            handleSortName={handleSortName}
+                            handleSortWeight={handleSortWeight}/>                                                     
+                    </div> 
+                    <div className="filter">
+                        <FilterBar 
+                            handleOriginFilter={handleOriginFilter}
+                            handleTempsFilter={handleTempsFilter} />                                                     
+                    </div>    
                 </div>
-                <div className="sorter">
-                    <SortBar 
-                        handleSortName={handleSortName}
-                        handleSortWeight={handleSortWeight}/>                                                     
-                </div> 
-                <div className="filter">
-                    <FilterBar 
-                        handleOriginFilter={handleOriginFilter}
-                        handleTempsFilter={handleTempsFilter} />                                                     
-                </div>    
                 <div className="paginated" >
                     <Paginated 
                         breedsPerPage= {breedsPerPage}
