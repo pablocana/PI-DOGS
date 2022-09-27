@@ -16,7 +16,7 @@ function App() {
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/home' component={Home} />
           <Route exact path='/create' component={CreateBreed} />
-          <Route path='/detail/:name' component={BreedDetail} />
+          <Route path='/detail/:id' component={BreedDetail} />
           <Route exact path='/about' component={About} />
         </Switch>
       </div>

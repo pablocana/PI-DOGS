@@ -21,7 +21,9 @@ const getApiInfo = async () => {
         name: element.name,
         image: element.image.url,
         temperaments: element.temperament,
+        height: element.height.metric,
         weight: element.weight.metric.split(' - '),      // metric, split => ex: ["a", "b"]
+        life_span: element.life_span,
       }
     })
     )
@@ -79,14 +81,15 @@ router.get('/dogs', async (req, res) => {
 
 
 
-router.get('/dogs/:name', async (req, res) => {
-  const  { name } = req.params;
-
+router.get('/dogs/:id', async (req, res) => {
+  const  { id } = req.params;
+  const totalDogs= await getAllDogs()
+  
   try {
-    const dogDetail = await axios.get(`https://api.thedogapi.com/v1/breeds/search?q=${name}`);
+    const dogDetail = totalDogs.find(e => e.id == id);
 
-    if(dogDetail.data.length > 0){
-      return res.status(200).json(dogDetail.data);  
+    if(dogDetail){
+      return res.status(200).json(dogDetail);  
     }else{
       return res.status(404).send('dog breed not found');
     }

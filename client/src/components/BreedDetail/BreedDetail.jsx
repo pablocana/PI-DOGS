@@ -10,27 +10,23 @@ import { getDetail } from "../../Redux/actions";
 export default function BreedDetail(props){
 
     const dispatch = useDispatch();
-    const allBreeds = useSelector((state) => state.breeds);
+    //const allBreeds = useSelector((state) => state.breeds);
     const detail = useSelector((state)=> state.detail);
 
-    const [breedDb, setBreedDb] = useState(false);
-    let breedName = props.match.params.name;
-    console.log(breedName);
+    const [breedLoad, setBreedLoad] = useState(true);
+    
 
     useEffect(()=>{
-        const breed = async() =>{
-            if(isNaN(Number(props.match.params.id))) {
-                setBreedDb(true);
-            } else {
-                //console.log(breedName.replace(/%20/g," "));
-            await dispatch(getDetail(unescape(breedName)))
-                //console.log(detail);
+        const breed = async() =>{   
+            await dispatch(getDetail(props.match.params.id)) 
+            setBreedLoad(false);    
             }
-        } 
         breed(); 
-    },[dispatch, breedName])
-
+    },[dispatch, props.match.params.id])
+    
+    console.log(props.match.params.id);
     console.log(detail);
+    /*  console.log(detail);
     if (breedDb) {
         let breedFromDb = allBreeds.filter(e => e.id === props.match.params.id)
         
@@ -51,16 +47,38 @@ export default function BreedDetail(props){
                 </div>
             </div>
         );
-    }else{
-        return(
+    }else{ */
+
+
+    return breedLoad?
+        <h1>Loading ctm...</h1>
+    :(
+        <div className="detail-container">
             <div>
-                    <h1 className="title-detail">{detail.name}</h1>
-                    <img src={detail.image} alt="videogame" />
-                    <p>Height: {detail.height.metric}</p>
-                    <p>Weight: {detail.weight.metric}</p>
-                    <p>Life Span: {detail.life_span}</p>
-                    <p>Temperaments: {detail.temperaments}</p>
-                </div>
-        )
-    }
+                <Link to='/home'>
+                    <button className='btn-home-detail'>Press to Home!</button>
+                </Link>
+            </div>
+            <div>
+                <h1 className="title-detail">{detail.name}</h1>
+                <img src={detail.image} alt="videogame" />
+                <p>Height: {detail.height}</p>
+                {
+                    isNaN(detail.id)?
+                    <p>Weight: {detail.weight}</p>
+                    :<p>Weight: {detail.weight.join(' - ')}</p>
+                }
+                {
+                    isNaN(detail.id)?
+                    <p>Life Span: {detail.life_span} years</p>
+                    :<p>Life Span: {detail.life_span}</p>
+                }
+                {
+                    isNaN(detail.id)?
+                    <p>Temperaments: {detail.temperaments.map(e=>e.name).join(', ')}</p>
+                    :<p>Temperaments: {detail.temperaments}</p>
+                }
+            </div>
+        </div>
+    )
 }

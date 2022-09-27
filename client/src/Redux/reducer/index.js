@@ -79,6 +79,8 @@ function rootReducer (state = initialState, action){
                     breeds: sortedBreeds
                 }
         case 'SORT_BY_WEIGHT':
+            //let weightBreeds = state.allBreeds.map(e =>e.weight).split(' - ');
+            
             let weightBreeds = state.allBreeds.filter(e => e.weight.length === 2);    
             //console.log(weightBreeds)
             // let weightBreeds = state.allBreeds;

@@ -120,7 +120,7 @@ export default function Home() {
                     {
                     currentBreeds && currentBreeds.map (e => {
                         return (
-                            <Link className='link-card' to={"/detail/" + e.name} key={e.id}>
+                            <Link className='link-card' to={"/detail/" + e.id} key={e.id}>
                                 <Card
                                 key={e.id}
                                 id={e.id}
