@@ -25,7 +25,7 @@ function handleSubmitSearch(e) {
         dispatch(searchBreed(name));
         setCurrentPage(1);
     }
-        //e.target.value =""; // ver porque no anda para limpiar el input.
+        // e.target.value=""; // ver porque no anda para limpiar el input.
 }
 
 

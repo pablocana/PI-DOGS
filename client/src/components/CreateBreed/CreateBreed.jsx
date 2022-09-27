@@ -160,21 +160,23 @@ function validate(input){
 
 
     return(
-        <>
-            <div className="nav-create">
-                <Link to="/home"><button>Press to Home</button></Link>
+        <div className="create-back">
+            
+            <div className="title-create">
                 <h1>Create your own Breed!</h1>
             </div>
+            <Link  to="/home"><button className="link-create-home">Press to Home</button></Link>
             <div className="create-container">
                 <form onSubmit={(e)=>handleSubmit(e)}>
-                    <div>
-                        <label>*Name: </label>
+                    <div className="div-label-input">
+                        <label className="label-form">*Name: </label>
                         <input 
+                            className="input-form"
                             type="text"
                             value={input.name}
                             name="name"
                             autoComplete="off"
-                            placeholder="Name"
+                            placeholder="   Name"
                             onChange={(e)=>handleChange(e)}
                         />
                         {
@@ -183,73 +185,69 @@ function validate(input){
                             )
                         }
                     </div>
-                    <div>
-                        <label>*Height: </label>
+                    <div className="div-label-input">
+                        <label className="label-form">*Height: </label>
                         <input 
+                            className="input-form"
                             type="text"
                             value={input.height}
                             name="height"
                             autoComplete="off"
-                            placeholder="10 - 99"
+                            placeholder="   10 - 99"
                             onChange={(e)=>handleChange(e)}
                         />
-                        <label> cm</label>
+                        <label className="back-label"> cm</label>
                         {
                             errors.height && (                               
                                 <p className="error">{errors.height}</p>
                             )
                         }
                     </div>
-                    <div>
-                        <label>*Weight: </label>
+                    <div className="div-label-input">
+                        <label className="label-form">*Weight: </label>
                         <input 
+                            className="input-form"
                             type="text"
                             value={input.weight}
                             name="weight"
                             autoComplete="off"
-                            placeholder="01 - 99"
+                            placeholder="   01 - 99"
                             onChange={(e)=>handleChange(e)}
                         />
-                        {/* <input 
-                            type="number"
-                            value={input.weightmax}
-                            name="weight"
-                            autoComplete="off"
-                            placeholder="00 - 100 kg"
-                            onChange={(e)=>handleChange(e)}
-                        /> */}
-                        <label> kg</label>
+                        <label className="back-label"> kg</label>
                         {
                             errors.weight && (                                // si errors.name, renderizame un <p> con ese error.
                                 <p className="error">{errors.weight}</p>
                             )
                         }
                     </div>
-                    <div>
-                        <label>Life Span: </label>
+                    <div className="div-label-input">
+                        <label className="label-form">Life Span: </label>
                         <input 
+                            className="input-form"
                             type="text"
                             value={input.life_span}
                             name="life_span"
                             autoComplete="off"
-                            placeholder="30"
+                            placeholder="   30"
                             onChange={(e)=>handleChange(e)}
                         />
-                        <label> years</label>
+                        <label className="back-label"> years</label>
                         {
                             errors.life_span && (                               
                                 <p className="error">{errors.life_span}</p>
                             )
                         }
                     </div>
-                    <div>
-                        <label>Image: </label>
+                    <div className="div-label-input">
+                        <label className="label-form">Image: </label>
                         <input 
+                            className="input-form"
                             type="text"
                             value={input.image}
                             name="image"
                             autoComplete="off"
-                            placeholder="image"
+                            placeholder="   image"
                             onChange={(e)=>handleChange(e)}
                         />
                         {/* {
@@ -259,8 +257,8 @@ function validate(input){
                         } */}
                     </div>
                     <div>
-                        <fieldset>
-                            <select defaultValue={'default'}
+                        <fieldset className="fieldset">
+                            <select className="select-form"defaultValue={'default'}
                                     onChange={(e)=>handleSelect(e)}>
                             <option value='default' disabled>Temperaments:</option>
                                 {
@@ -273,9 +271,9 @@ function validate(input){
                             <button type='button' className="reset-temps" onClick={handleReset}>Clear Temperaments</button>    
                         </fieldset>
                     </div>
-                    <button type="submit" disabled={!buttonEnabled}>Create Breed</button>       {/* Aca le pasamos el estado buttonEnabled */}
+                    <button className="submit-create" type="submit" disabled={!buttonEnabled}>Create Breed</button>       {/* Aca le pasamos el estado buttonEnabled */}
                 </form>
             </div>
-        </> 
+        </div> 
     );
 };

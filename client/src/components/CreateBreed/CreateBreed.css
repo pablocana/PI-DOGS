@@ -1,4 +1,52 @@
+
+
+.create-back {
+    background-color: rgb(255, 255, 255);
+    /* background-size: cover;
+    background-attachment: fixed; */
+}
+
+.link-create-home {
+    float: left;
+    background-color: rgba(255, 228, 196, 0.582);
+    color: black;
+    padding: 12px 14px;
+    margin-left: 100px;
+    margin-top: 28px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.link-create-home:hover{
+    transform: scale(110%);
+    background-color: white;
+    color: rgb(18, 133, 148);
+}
+
+
+.title-create {
+    background-color: rgba(255, 228, 196, 0.582);
+    color:rgba(63, 46, 24, 0.836);
+    padding: 6px 14px;
+    margin-right: 50px;
+    margin-left: 50px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    border: 2px solid black;
+    text-shadow: 20px 0px 35px rgba(6, 5, 5, 0.498), 0px 0px 50px rgba(248, 248, 248, 0.617);
+    
+}
+
 .create-container {
+    background-color: antiquewhite;
     margin: 125px auto 30px;
     padding: 30px;
     display: flex;
@@ -9,4 +57,115 @@
     border-radius: 20px;
     border: 2px solid var(--color);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+}
+
+.label-form{
+    background-color: rgba(253, 253, 252, 0.582);
+    color: rgba(63, 46, 24, 0.836);
+    padding: 5px 100px;
+    /* margin-right: 50px; */
+   /*  margin-top: 28px; */
+   /*  margin-bottom: 5px; */
+    margin: 30px;
+    margin-bottom: 50px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    border: 3px solid black;
+}
+
+.div-label-input {
+    margin-top: 45px;
+    margin-bottom: 18px;
+}
+
+.input-form {
+    
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 1.5px solid black;
+}
+
+.back-label {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.error {
+    font-weight: bold;
+    font-size: 18px;
+    color: red;
+    background-color: rgb(243, 173, 173);
+    border-radius: 20px;
+    border: 2px solid red;
+}
+
+
+.select-form {
+    background-color: rgba(255, 255, 255, 0.582);
+    color: rgba(63, 46, 24, 0.836);
+    padding: 5px 30px;
+    margin: 50px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+/* .select-form:hover {
+    background-color: white;
+    color: rgb(18, 133, 148);
+} */
+
+.fieldset {
+    margin-top: 120px;
+    border-radius: 20px;
+    background-color: rgba(132, 84, 37, 0.361);
+    font-weight: bold;
+    font-size: 15px;
+    color: rgba(63, 46, 24, 0.836);
+}
+
+.reset-temps {
+    background-color: rgba(246, 246, 246, 0.582);
+    color: rgba(63, 46, 24, 0.836);
+    padding: 5px 30px;
+    margin: 30px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    border: 2px solid black;
+    cursor: pointer;
+}
+
+.reset-temps:hover {
+    transform: scale(105%);
+    background-color: white;
+    color: rgb(18, 133, 148);
+}
+
+.submit-create {
+    background-color: rgba(246, 246, 246, 0.582);
+    color: black;
+    padding: 20px 50px;
+    margin: 30px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    border: 3px solid black;
+    cursor: pointer;
+}
+
+.submit-create:hover {
+    transform: scale(105%);
+    background-color: white;
+    color: rgb(18, 133, 148);
 }

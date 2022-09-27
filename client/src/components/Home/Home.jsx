@@ -94,7 +94,7 @@ export default function Home() {
                 <div className="nav">
                     <NavBar/>
                 </div>
-                    <h2 className="home-title">Aca tan los Doguis</h2> 
+                    <h2 className="home-title">Come meet dog breeds!</h2> 
                     <button className="reload" onClick={e => {handleClick(e)}}>Reload Dogs</button>
                 <div className="lateral-bar">
                     <div className="search">

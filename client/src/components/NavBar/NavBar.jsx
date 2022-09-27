@@ -23,7 +23,7 @@ export default function NavBar(props) {
                         <NavLink exact to="/create"> Create breed </NavLink>
                     </li>
                     <li className="list-item">
-                        <NavLink exact to="/about"> About </NavLink>
+                        {/* <NavLink exact to="/about"> About </NavLink> */}
                     </li>
                 </ul>
             </div>
