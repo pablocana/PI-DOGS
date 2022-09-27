@@ -1,7 +1,4 @@
-
-
-
-.origin{
+.sort-name{
     background-color: rgba(255, 228, 196, 0.582);
     color: black;
     padding: 6px 14px;
@@ -15,7 +12,7 @@
     cursor: pointer;
 }
 
-.temps {
+.sort-weight{
     background-color: rgba(255, 228, 196, 0.582);
     color: black;
     padding: 6px 14px;
@@ -28,3 +25,17 @@
     border: 2px solid black;
     cursor: pointer;
 }
+
+/* .lat-bar-option{
+    background-color: rgba(255, 228, 196, 0.582);
+    color: black;
+    padding: 6px 14px;
+    margin-left: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+    border: 2px solid black;
+    cursor: pointer;
+} */

@@ -1,3 +1,4 @@
+import "./SortBar.css";
 import React from "react";
 
 
@@ -9,7 +10,7 @@ export default function SortBar({ handleSortName, handleSortWeight }){
             <div>
             <select onChange={(e) => handleSortName(e)} className='sort-name' defaultValue={'DEFAULT'}>
                 <option value='DEFAULT' disabled>Sort By Name</option>
-                <option value="ASC">A to Z</option>
+                <option className="lat-bar-option" value="ASC">A to Z</option>
                 <option value="DESC">Z to A</option>
             </select>
             <select onChange={(e) => handleSortWeight(e)} className='sort-weight' defaultValue={'DEFAULT'}>

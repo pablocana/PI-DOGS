@@ -24,7 +24,7 @@ export default function Home() {
     const allBreeds = useSelector((state) => state.breeds); // => es lo mismo que el mapStateToProps.
     
 
-    // const [temps, setTemps] = useState([]);
+    //const [temps, setTemps] = useState([]);
     const [render, setRender] = useState(''); // estado Render.
     
     //PAGINADO

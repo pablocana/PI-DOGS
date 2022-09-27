@@ -22,15 +22,15 @@ export default function FilterBar({ handleOriginFilter, handleTempsFilter }){
     return(
         <div className="filter-bar">
             <h2>Filter by</h2>
-            <select onChange={(e) => handleOriginFilter(e)} className='origin' defaultValue={'All Breeds'}>
-                {/* <option value='DEFAULT' disabled>Filter by Origin</option> */}
+            <select className='origin' onChange={(e) => handleOriginFilter(e)}  defaultValue={'DEFAULT'}>
+                <option value='DEFAULT' disabled>Filter by Origin</option>
                 <option value="All Breeds">All Breeds</option>
                 <option value="API">Breeds from API</option>
                 <option value="DB">Breeds from DB</option>
             </select>
             <select className='temps' onChange={(e) => handleTempsFilter(e)} defaultValue={'DEFAULT'}>
-                <option value='TEMP' disabled>Filter By Temperaments</option>
-                <option value='All Breeds'>All </option>
+                <option value='DEFAULT' disabled>Filter By Temperaments</option>
+                <option value='All Breeds'>All Breeds </option>
                 {
                     temperaments && temperaments.map(e => (
                         <option value={e.name}>{e.name}</option>  

@@ -19,23 +19,27 @@ function handleInputName(e) {
 
 function handleSubmitSearch(e) {
     e.preventDefault();
+    if(!name){
+        alert('Please enter a name breed on search...');
+    } else {
         dispatch(searchBreed(name));
         setCurrentPage(1);
-        
+    }
         //e.target.value =""; // ver porque no anda para limpiar el input.
 }
 
 
     return(
         <div className="search-bar">
-            <h5 className="search-title">Do a search:</h5>
+            <h2 className="search-title">Do a search:</h2>
             <input 
+                className="search-input"
                 type="text" 
                 placeholder="Search Breed..."
                 autoComplete="off"
                 onChange={(e) => handleInputName(e)} 
             />
-            <button type="submit" onClick={(e) => handleSubmitSearch(e)}>Search</button>
+            <button className="btn-search" type="submit" onClick={(e) => handleSubmitSearch(e)}>Search</button>
         </div>
         );
 }

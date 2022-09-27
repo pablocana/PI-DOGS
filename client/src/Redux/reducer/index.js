@@ -23,13 +23,13 @@ function rootReducer (state = initialState, action){
 
         case 'FILTER_BY_TEMPS':
             let dogTemps = state.allBreeds;
-            dogTemps = dogTemps.filter(e => e.temperament !== undefined); // si el perro no tiene temperamento no lo muestro.
+            dogTemps = dogTemps.filter(e => e.temperaments !== undefined); // si el perro no tiene temperamento no lo muestro.
             //console.log(dogTemps)
 
             let tempFiltered = action.payload === "All Breeds" 
                 ? dogTemps 
                 : dogTemps.filter(dog =>(
-                    dog.temperament.includes(action.payload) // si el perro tiene temperamento y el temperamento es igual al que selecciono lo muestro
+                    dog.temperaments.includes(action.payload) // si el perro tiene temperamento y el temperamento es igual al que selecciono lo muestro
                 ));
 
             return{

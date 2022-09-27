@@ -1,63 +1,66 @@
 
 .title {
+    display: flex;
     justify-content: center;
-    text-align: start;
-    align-items: center;
+    align-content: center;
     font-weight: bold;
+    font-size: 30px;
+    position: absolute;
+    margin-left: 120px;
+    
 }
 
 .link-social{
-    margin: 0 15px;
-    font-size: 40px; 
+    font-size: 50px;
     display: flex;
-    align-items: center;
-    justify-content: center;       
-    /* a{
-        color: #333;
-        margin: 10px;
-        transition: color 200ms ease;
-
-        &:hover{
-            color: var(--color);
-        
-        }
-        
-    } */
+    margin-left: 1500px;
+    padding-top: 10px;
+    object-fit: contain;
+    text-decoration: none;
+    color: black;
 }       
 
 
 .list {
-    margin-left: 1200px;
-    font-weight: bold;
-    list-style: none;
-    display: list-item;
+    position: relative;
+    display: flex;
+    margin-top: 50px;
+    padding-bottom: 50px;
+    align-items: center;
+    margin-right: 150px;
     align-items: center;
 }
 
 .list-item {
-    margin: 0 5px;
+    border-color: 2px solid black;
     display: flex;
-    align-items: center;
+    justify-content: space-around;    
+    object-fit: contain;
+    position: relative;
+    font-size: 20px;
+    margin: 10px;
 }
 
 .list-item a {
+    background-color: rgba(255, 228, 196, 0.582);
     color: inherit;
     padding: 6px 14px;
     margin-top: 5px;
     margin-bottom: 5px;
     text-decoration: none;
     border-radius: 20px;
-    transition: background-color 250ms ease;
+    transition: background-color 250ms rgba(255, 255, 255, 0.856);
     font-weight: bold;
-    border: 2px solid var(--color);
+    border: 3px solid var(black);
 }
 
 .active {
-    background-color: var(--color);
+    /* background-color: var(rgb(31, 8, 243)); */
 }
 
-.list-item a:hover{
-    background-color: var(--color);
+.list-item:hover{
+    border-radius: 20px;
+    background-color: white;
     color: rgb(18, 133, 148);
     font-weight: bold;
 }
@@ -65,10 +68,9 @@
 
 
 
-.link-social button:hover {
-    background-color: #701f1f;
+.link-social a:hover {
     transition: 0.3s;
-    color: rgb(131, 113, 14);
+    color: rgb(18, 133, 148);
     text-decoration: none;
 }
 

@@ -1,3 +1,4 @@
+import "./BreedDetail.css";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -51,17 +52,17 @@ export default function BreedDetail(props){
 
 
     return breedLoad?
-        <h1>Loading ctm...</h1>
+        <h1>Loading...</h1>
     :(
-        <div className="detail-container">
+        <div className="detail">
             <div>
                 <Link to='/home'>
                     <button className='btn-home-detail'>Press to Home!</button>
                 </Link>
             </div>
-            <div>
+            <div className="detail-container">
                 <h1 className="title-detail">{detail.name}</h1>
-                <img src={detail.image} alt="videogame" />
+                <img className="img-detail" src={detail.image} alt="videogame" />
                 <p>Height: {detail.height}</p>
                 {
                     isNaN(detail.id)?
