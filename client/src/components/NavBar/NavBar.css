@@ -7,7 +7,6 @@
     font-size: 30px;
     position: absolute;
     margin-left: 120px;
-    
 }
 
 .link-social{
@@ -16,9 +15,14 @@
     margin-left: 1700px;
     padding-top: 10px;
     object-fit: contain;
+}
+
+.link-social a {
     text-decoration: none;
     color: black;
-}       
+    /* margin-inline: 30px; */
+    margin-left: 100px;
+}
 
 
 .list {
@@ -32,7 +36,7 @@
 }
 
 .list-item {
-    border-color: 2px solid black;
+    border-color: 3px solid black;
     display: flex;
     justify-content: space-around;    
     object-fit: contain;
@@ -51,7 +55,7 @@
     border-radius: 20px;
     transition: background-color 250ms rgba(255, 255, 255, 0.856);
     font-weight: bold;
-    border: 3px solid var(black);
+    border: 3px solid black;
 }
 
 .active {
@@ -64,8 +68,6 @@
     color: rgb(18, 133, 148);
     font-weight: bold;
 }
-
-
 
 
 .link-social a:hover {

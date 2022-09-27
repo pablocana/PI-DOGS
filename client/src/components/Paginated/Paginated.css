@@ -15,7 +15,7 @@ ul {
     padding: 20px 12px;
     height: 10px;
     text-align: center;
-    color: rgba(247, 247, 247, 0.89);
+    color: #745b45b2;
     border-color:  rgb(75, 75, 248);
     border-width: 3px;
     border-radius: 3px;
@@ -27,7 +27,7 @@ ul {
     opacity: 0.75;
     cursor: pointer;
     font-size: 18px;
-
+    font-weight: bold;
 }
 
 

@@ -1,10 +1,13 @@
 .home {
-    background-image: url(../../assets/homeback.jpg);
+    background-image: url(../../assets/fondo_prueba.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     overflow-x: hidden;
+    padding: 10px;
+    min-height: 100vh;
+    padding-bottom: 50px;   /* ESTO ES PARA Q NO SE HAGA LA BARRA ABAJO, XQ SE QUEDA SIN LUGAR. */
 }
 
 .home-title {
@@ -37,7 +40,7 @@
     text-decoration: none;
     border-radius: 20px;
     font-weight: bold;
-    border: 5px solid var(--color);
+    border: 4px solid black;
     cursor: pointer;
 }
 

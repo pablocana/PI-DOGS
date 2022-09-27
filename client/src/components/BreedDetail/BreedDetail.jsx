@@ -67,21 +67,21 @@ export default function BreedDetail(props){
             <div className="detail-container">
                 <h1 className="title-detail">{detail.name}</h1>
                 <img className="img-detail" src={detail.image} alt="videogame" />
-                <p>Height: {detail.height}</p>
+                <p className="detail-info">Height: {detail.height}</p>
                 {
                     isNaN(detail.id)?
-                    <p>Weight: {detail.weight}</p>
-                    :<p>Weight: {detail.weight.join(' - ')}</p>
+                    <p className="detail-info">Weight: {detail.weight}</p>
+                    :<p className="detail-info">Weight: {detail.weight.join(' - ')}</p>
                 }
                 {
                     isNaN(detail.id)?
-                    <p>Life Span: {detail.life_span} years</p>
-                    :<p>Life Span: {detail.life_span}</p>
+                    <p className="detail-info">Life Span: {detail.life_span} years</p>
+                    :<p className="detail-info">Life Span: {detail.life_span}</p>
                 }
                 {
                     isNaN(detail.id)?
-                    <p>Temperaments: {detail.temperaments.map(e=>e.name).join(', ')}</p>
-                    :<p>Temperaments: {detail.temperaments}</p>
+                    <p className="detail-info">Temperaments: {detail.temperaments.map(e=>e.name).join(', ')}</p>
+                    :<p className="detail-info">Temperaments: {detail.temperaments}</p>
                 }
             </div>
         </div>

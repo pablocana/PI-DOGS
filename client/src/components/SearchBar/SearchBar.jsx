@@ -20,7 +20,7 @@ function handleInputName(e) {
 function handleSubmitSearch(e) {
     e.preventDefault();
     if(!name){
-        alert('Please enter a name breed on search...');
+        alert('Please enter a name breed...');
     } else {
         dispatch(searchBreed(name));
         setCurrentPage(1);
