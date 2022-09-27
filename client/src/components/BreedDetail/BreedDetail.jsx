@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getDetail } from "../../Redux/actions";
+import loading from '../../assets/gifpaw.gif';
 
 
 
@@ -52,7 +53,10 @@ export default function BreedDetail(props){
 
 
     return breedLoad?
-        <h1>Loading...</h1>
+    <>
+        <h1 className="loading-detail">Loading...</h1>
+        <img className='img-loading-detail' src={loading} alt="loading" width='600px' height='800px'/>
+    </>
     :(
         <div className="detail">
             <div>

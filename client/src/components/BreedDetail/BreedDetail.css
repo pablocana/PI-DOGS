@@ -1,3 +1,12 @@
+.loading-detail{
+    /* background-image: url(../../assets/gifpaw.gif);
+    max-width: 600px;
+    max-height: 500px; */
+    font-size: 140px;
+    font-family: cursive;
+    margin-top: 30px;
+}
+
 .details{
     padding: 20px;
     padding-bottom: 50%;
