@@ -21,7 +21,7 @@ export default function FilterBar({ handleOriginFilter, handleTempsFilter }){
     
     return(
         <div className="filter-bar">
-            <h1>Filter by</h1>
+            <h2>Filter by</h2>
             <select onChange={(e) => handleOriginFilter(e)} className='origin' defaultValue={'All Breeds'}>
                 {/* <option value='DEFAULT' disabled>Filter by Origin</option> */}
                 <option value="All Breeds">All Breeds</option>

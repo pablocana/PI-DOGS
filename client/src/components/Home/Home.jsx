@@ -94,7 +94,7 @@ export default function Home() {
                 <div className="nav">
                     <NavBar/>
                 </div>
-                    <h1>Aca tan los Doguis</h1> 
+                    <h2>Aca tan los Doguis</h2> 
                     <button className="reload" onClick={e => {handleClick(e)}}>Reload Dogs</button>
                 <div className="search">
                     <SearchBar setCurrentPage={setCurrentPage} />
@@ -120,13 +120,13 @@ export default function Home() {
                     {
                     currentBreeds && currentBreeds.map (e => {
                         return (
-                            <Link className='link-card' to={"/detail/" + e.id} key={e.id}>
+                            <Link className='link-card' to={"/detail/" + e.name} key={e.id}>
                                 <Card
                                 key={e.id}
                                 id={e.id}
                                 name={e.name}
                                 image={e.image}
-                                temperament={e.temperament} />
+                                temperaments={e.temperaments} />
                             </Link>
                             )
                         })

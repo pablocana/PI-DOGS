@@ -17,9 +17,10 @@ const getApiInfo = async () => {
     .then(response => response.data.map(element =>{
       // ver para hacerlo con destructuring.
       return {
+        id: element.id,
         name: element.name,
         image: element.image.url,
-        temperament: element.temperament,
+        temperaments: element.temperament,
         weight: element.weight.metric.split(' - '),      // metric, split => ex: ["a", "b"]
       }
     })

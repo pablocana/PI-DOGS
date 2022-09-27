@@ -5,7 +5,7 @@ import React from "react";
 export default function SortBar({ handleSortName, handleSortWeight }){
     return(
         <div className="sorter-bar">
-            <h1>Sort by</h1>
+            <h2>Sort by</h2>
             <div>
             <select onChange={(e) => handleSortName(e)} className='sort-name' defaultValue={'DEFAULT'}>
                 <option value='DEFAULT' disabled>Sort By Name</option>

@@ -83,9 +83,9 @@ export function createBreed(payload) {                             // payload qu
 }
 
 
-export function getDetail(id) {
+export function getDetail(name) {
     return async function(dispatch) {
-        var json = await axios.get(`/breed/${id}`);
+        var json = await axios.get(`http://localhost:3001/dogs/${name}`);
         return dispatch({
             type: 'GET_DETAILS',
             payload: json.data

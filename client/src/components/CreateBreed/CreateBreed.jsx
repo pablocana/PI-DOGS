@@ -32,7 +32,7 @@ function validate(input){
     let errors = {};
     const regexName = /^[a-zA-Z ]+$/;
     const regexNumber = /\d\d - \d\d/;
-    //const regexNumberLife_span = /\d\d/;
+    const regexNumberLife_span = /\d\d/;
     //const regexUrl = /(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/i;
 
     if(!input.name /* || input.name !== regexName.test(input.name )*/){                            // si en mi estado local name=null => en mi object.name= msg.
@@ -70,14 +70,14 @@ function validate(input){
     }
     
 
-    /* if(!regexNumberLife_span.test(input.life_span)){
+    if(!regexNumberLife_span.test(input.life_span)){
         errors.life_span = 'Please write a number';
     } else if(input.life_span > 30) {
         errors.life_span = 'Life span must be under 30 years';
-    } */
+    }
 
     /* if(!regexUrl.test(input.image))
-        errors.image = 'Wrong format link';  */   
+        errors.image = 'Wrong format link';   */  
     
 
     if (Object.entries(errors).length === 0) setButtonEnabled(true); // Object.entries me devuelve un array [key,value]
@@ -125,6 +125,7 @@ function validate(input){
     function handleSubmit(e){
         e.preventDefault();
         //console.log(input);                  // hacemos aca el console.log xq...
+        //if (input.background_image === "") input.background_image = image;            // traer imagen default.
         dispatch(createBreed(input))
         alert("Dog breed successfully created!")
         setInput({
@@ -235,11 +236,11 @@ function validate(input){
                             onChange={(e)=>handleChange(e)}
                         />
                         <label> years</label>
-                        {/* {
+                        {
                             errors.life_span && (                               
                                 <p className="error">{errors.life_span}</p>
                             )
-                        } */}
+                        }
                     </div>
                     <div>
                         <label>Image: </label>
