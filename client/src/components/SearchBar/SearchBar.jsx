@@ -24,10 +24,10 @@ function handleSubmitSearch(e) {
     } else {
         dispatch(searchBreed(name));
         console.log(name);
-        //setName("");
+        setName("");
         setCurrentPage(1);
     }   
-        // e.target.value=""; // ver porque no anda para limpiar el input.
+      //  e.target.value=""; // ver porque no anda para limpiar el input.
 }
 
 
@@ -36,7 +36,8 @@ function handleSubmitSearch(e) {
             <h2 className="search-title">Do a search:</h2>
             <input 
                 className="search-input"
-                type="text" 
+                type="text"
+                value={name} 
                 placeholder="Search Breed..."
                 autoComplete="off"
                 onChange={(e) => handleInputName(e)} 

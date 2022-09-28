@@ -67,27 +67,27 @@ router.get('/dogs', async (req, res) => {
     try {
       const search = await axios.get(`https://api.thedogapi.com/v1/breeds/search?q=${name}`)
       //.data te trae siempre array. (recordar no existe array que sea undefined/null)
-        /* .then(response => response.data.map(element =>{
+        .then(response => response.data.map(element =>{
         // ver para hacerlo con destructuring.
           return {
             id: element.id,
             name: element.name,
-            image: element.image.url,
+            reference_image_id: element.reference_image_id,
             temperaments: element.temperament,
             height: element.height.metric,
             weight: element.weight.metric.split(' - '),
             life_span: element.life_span,
           }
         })
-      ) */
+      )
 
-      if(search.data.length > 0){
-        return res.status(200).json(search.data)
+      if(search.length > 0){
+        return res.status(200).json(search)
       }else {
         return res.status(404).send('dog breed not found');
       }
     } catch (error) {
-      return res.status(404).send(error);
+      return res.status(404).send(error.message);
     }  
   }else{
     return res.status(200).json(allDogs);
