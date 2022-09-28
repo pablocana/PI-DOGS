@@ -196,7 +196,7 @@ function validate(input){
                             placeholder="  10 - 99"
                             onChange={(e)=>handleChange(e)}
                         />
-                        <label className="back-label"> cm</label>
+                        <label className="back-label"> min - max cm</label>
                         {
                             errors.height && (                               
                                 <p className="error">{errors.height}</p>
@@ -214,7 +214,7 @@ function validate(input){
                             placeholder="  01 - 99"
                             onChange={(e)=>handleChange(e)}
                         />
-                        <label className="back-label"> kg</label>
+                        <label className="back-label"> min - max kg</label>
                         {
                             errors.weight && (                                // si errors.name, renderizame un <p> con ese error.
                                 <p className="error">{errors.weight}</p>

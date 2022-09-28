@@ -1,12 +1,11 @@
 import axios from "axios";
 
-// const allActions ={} // ver para exportar todas las acciones juntas para importarlas con una sola variable en el home.
-    
+
 export function getBreeds(){
     return async function(dispatch){
-        // aca es donde sucede toda la conexion entre el fron y el back.
+        // aca es donde sucede toda la conexion entre el front y el back.
         var json = await axios.get("http://localhost:3001/dogs/");       
-        //axios x default te hace el get pero sino podemos hacerlo como axios.get()  
+        //axios x default te hace el get 
         return dispatch({ 
             type:'GET_BREEDS',
             payload: json.data
@@ -75,10 +74,10 @@ export function searchBreed(name) {
 
 
 
-export function createBreed(payload) {                             // payload que me llega del front.
+export function createBreed(payload) {                             
     return async function(dispatch) {
         var json = await axios.post('http://localhost:3001/dogs/', payload);            // aca le digo que en esta ruta, quiero hacer un post del payload.
-        return json;                                               // no usamos el dispatch.
+        return json;                                                                    // no usamos el dispatch.
     }
 }
 

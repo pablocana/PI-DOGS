@@ -3,7 +3,7 @@ import React from "react";
 import { NavLink } from 'react-router-dom';
 
 
-export default function NavBar(props) {
+export default function NavBar() {
 
     return (
         <div className="nav-bar">
@@ -21,7 +21,7 @@ export default function NavBar(props) {
             <div>
                 <ul className="list">
                     <li className="list-item">
-                        <NavLink exact to="/home"> Home </NavLink>
+                        {/* <NavLink exact to="/home"> Home </NavLink> */}
                     </li>
                     <li className="list-item">
                         <NavLink exact to="/create"> Create breed </NavLink>

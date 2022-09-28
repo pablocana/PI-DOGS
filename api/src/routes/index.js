@@ -11,7 +11,7 @@ const { Breed, Temperament } = require ('../db.js');
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-
+//TRAER DE LA API:
 const getApiInfo = async () => {
     let apiInfo = await axios.get('https://api.thedogapi.com/v1/breeds')
       .then(response => response.data.map(element =>{
@@ -56,7 +56,7 @@ const getAllDogs = async () => {
   return totalDogs;
 }
 
-
+//RUTAS.
 
 router.get('/dogs', async (req, res) => {
   const { name } = req.query;
@@ -115,8 +115,6 @@ router.get('/dogs/:id', async (req, res) => {
 
 
 // POST
-//ver tema validaciones de datos que nos llegan. (averiguar si en back y/o front)
-//ver funcion que traiga todos los temperamentos cuando se levanta el server.
 router.post('/dogs', async(req, res) => {
   let { name,
         height, 
@@ -157,7 +155,7 @@ router.get('/temperaments', async (req, res) =>{
 
 // DELETE (aun en desuso)
 
-router.delete('/dogs/:id', async (req, res) => {
+/* router.delete('/dogs/:id', async (req, res) => {
   const { id } = req.params;
   try {
       let dog = await Breed.destroy({ where: { ID: id } });
@@ -165,7 +163,7 @@ router.delete('/dogs/:id', async (req, res) => {
   } catch (error) {
       return res.status(404).send(error);
   }
-});
+}); */
 
 
 

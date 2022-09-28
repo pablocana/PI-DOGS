@@ -17,9 +17,6 @@ export default function Home() {
 
     const dispatch = useDispatch();
 
-    //ESTADOS
-    
-    
     //BREEDS STATE
     const allBreeds = useSelector((state) => state.breeds); // => es lo mismo que el mapStateToProps.
     
@@ -33,7 +30,7 @@ export default function Home() {
 
     const indexLast = currentPage * breedsPerPage; // 8 
     const indexFirst = indexLast - breedsPerPage; // 0
-    const currentBreeds = allBreeds.slice(indexFirst, indexLast); // me devuelve una porcion de un arreglo, aca toma desde el index 0 hasta 8. (el 8 no me lo toma, renderiza del 0 al 7 = 8)
+    const currentBreeds = allBreeds.slice(indexFirst, indexLast); // aca toma desde el index 0 hasta 8. (el 8 no me lo toma, renderiza del 0 al 7 = 8)
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -47,7 +44,6 @@ export default function Home() {
         }                            // => es lo mismo que el mapDispatchToProps.
     doguis();
     },[dispatch]);                    // para q no se genere un loop inf.
-
 
 
 // RELOAD DOGS
@@ -78,7 +74,7 @@ export default function Home() {
         e.preventDefault();
         dispatch(sortBreedsByName(e.target.value));
         setCurrentPage(1);
-        setRender(`Sort ${e.target.value}`) // me modifica el estado local y se rerenderiza. //VER DE QUE OTRA FORMA PUEDO RERENDER.
+        setRender(`Sort ${e.target.value}`) // me modifica el estado local y se rerenderiza. 
     }
 
     function handleSortWeight(e) {

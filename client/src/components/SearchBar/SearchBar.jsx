@@ -23,8 +23,10 @@ function handleSubmitSearch(e) {
         alert('Please enter a name breed...');
     } else {
         dispatch(searchBreed(name));
+        console.log(name);
+        //setName("");
         setCurrentPage(1);
-    }
+    }   
         // e.target.value=""; // ver porque no anda para limpiar el input.
 }
 

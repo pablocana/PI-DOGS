@@ -48,8 +48,8 @@ export default function BreedDetail(props){
                 <p className="detail-info">Height: {detail.height} cm</p>
                 {
                     isNaN(detail.id)?
-                    <p className="detail-info">Weight: {detail.weight} kg</p>
-                    :<p className="detail-info">Weight: {detail.weight.join(' - ')} kg</p>
+                    <p className="detail-info">Weight: {detail.weight} kg</p>                   //DB
+                    :<p className="detail-info">Weight: {detail.weight.join(' - ')} kg</p>      //API
                 }
                 {
                     isNaN(detail.id)?
