@@ -14,20 +14,20 @@ const { Breed, Temperament } = require ('../db.js');
 
 const getApiInfo = async () => {
     let apiInfo = await axios.get('https://api.thedogapi.com/v1/breeds')
-    .then(response => response.data.map(element =>{
+      .then(response => response.data.map(element =>{
       // ver para hacerlo con destructuring.
-      return {
-        id: element.id,
-        name: element.name,
-        image: element.image.url,
-        temperaments: element.temperament,
-        height: element.height.metric,
-        weight: element.weight.metric.split(' - '),      // metric, split => ex: ["a", "b"]
-        life_span: element.life_span,
-      }
-    })
-    )
-    return apiInfo;
+        return {
+          id: element.id,
+          name: element.name,
+          image: element.image.url,
+          temperaments: element.temperament,
+          height: element.height.metric,
+          weight: element.weight.metric.split(' - '),      // metric, split => ex: ["a", "b"]
+          life_span: element.life_span,
+        }
+      })
+      )
+      return apiInfo;
   
 };
 
@@ -62,10 +62,25 @@ router.get('/dogs', async (req, res) => {
   const { name } = req.query;
   const allDogs = await getAllDogs();
 
+
   if(name){
     try {
-      const search = await axios.get(`https://api.thedogapi.com/v1/breeds/search?q=${name}`);
-      //.data te trae siempre array. (array no existe undefined/null)
+      const search = await axios.get(`https://api.thedogapi.com/v1/breeds/search?q=${name}`)
+      //.data te trae siempre array. (recordar no existe array que sea undefined/null)
+        /* .then(response => response.data.map(element =>{
+        // ver para hacerlo con destructuring.
+          return {
+            id: element.id,
+            name: element.name,
+            image: element.image.url,
+            temperaments: element.temperament,
+            height: element.height.metric,
+            weight: element.weight.metric.split(' - '),
+            life_span: element.life_span,
+          }
+        })
+      ) */
+
       if(search.data.length > 0){
         return res.status(200).json(search.data)
       }else {
@@ -140,7 +155,7 @@ router.get('/temperaments', async (req, res) =>{
 });
 
 
-// DELETE
+// DELETE (aun en desuso)
 
 router.delete('/dogs/:id', async (req, res) => {
   const { id } = req.params;

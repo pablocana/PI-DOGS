@@ -26,8 +26,8 @@ export default function BreedDetail(props){
         breed(); 
     },[dispatch, props.match.params.id])
     
-    console.log(props.match.params.id);
-    console.log(detail);
+    //console.log(props.match.params.id);
+    //console.log(detail);
 
 
     return breedLoad?
@@ -44,12 +44,12 @@ export default function BreedDetail(props){
             </div>
             <div className="detail-container">
                 <h1 className="title-detail">{detail.name}</h1>
-                <img className="img-detail" src={detail.image} alt="videogame" />
-                <p className="detail-info">Height: {detail.height}</p>
+                <img className="img-detail" src={detail.image} alt="Dogui" />
+                <p className="detail-info">Height: {detail.height} cm</p>
                 {
                     isNaN(detail.id)?
-                    <p className="detail-info">Weight: {detail.weight}</p>
-                    :<p className="detail-info">Weight: {detail.weight.join(' - ')}</p>
+                    <p className="detail-info">Weight: {detail.weight} kg</p>
+                    :<p className="detail-info">Weight: {detail.weight.join(' - ')} kg</p>
                 }
                 {
                     isNaN(detail.id)?
