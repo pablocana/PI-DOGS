@@ -23,7 +23,7 @@ export default function CreateBreed({ setCurrentPage }){
     });
     
     const [errors, setErrors] = useState({});       
-    const [buttonEnabled, setButtonEnabled] = useState(true);
+    const [buttonEnabled, setButtonEnabled] = useState(false);
     //const [render, setRender] = useState('');
 
     // FUNCION VALIDADORA.
@@ -136,7 +136,7 @@ function validate(input){
             image:'', 
             temperament: [],
         });
-        history.push("/home");                // el useHistory es un metodo del router, que sirve para redirijirme a la ruta que yo diga.
+        history.push("/home");               // el useHistory es un metodo del router, que sirve para redirijirme a la ruta que yo diga.
         //setCurrentPage(23);
     };
 
@@ -176,7 +176,7 @@ function validate(input){
                             value={input.name}
                             name="name"
                             autoComplete="off"
-                            placeholder="   Name"
+                            placeholder="  Name"
                             onChange={(e)=>handleChange(e)}
                         />
                         {
@@ -193,7 +193,7 @@ function validate(input){
                             value={input.height}
                             name="height"
                             autoComplete="off"
-                            placeholder="   10 - 99"
+                            placeholder="  10 - 99"
                             onChange={(e)=>handleChange(e)}
                         />
                         <label className="back-label"> cm</label>
@@ -211,7 +211,7 @@ function validate(input){
                             value={input.weight}
                             name="weight"
                             autoComplete="off"
-                            placeholder="   01 - 99"
+                            placeholder="  01 - 99"
                             onChange={(e)=>handleChange(e)}
                         />
                         <label className="back-label"> kg</label>
@@ -229,7 +229,7 @@ function validate(input){
                             value={input.life_span}
                             name="life_span"
                             autoComplete="off"
-                            placeholder="   30"
+                            placeholder="  30"
                             onChange={(e)=>handleChange(e)}
                         />
                         <label className="back-label"> years</label>
@@ -247,7 +247,7 @@ function validate(input){
                             value={input.image}
                             name="image"
                             autoComplete="off"
-                            placeholder="   image"
+                            placeholder="  insert image URL"
                             onChange={(e)=>handleChange(e)}
                         />
                         {/* {

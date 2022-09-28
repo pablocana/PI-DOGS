@@ -25,9 +25,7 @@
     background-color: rgba(255, 228, 196, 0.582);
     border: 3px solid rgb(0, 0, 0);
     border-radius: 10px;
-    margin: auto;
     height: 100px;
-    display: flex;
 }
 
 .reload {
