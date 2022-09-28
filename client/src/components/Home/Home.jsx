@@ -54,6 +54,7 @@ export default function Home() {
     function handleClick(e){                           
         e.preventDefault();
         dispatch(getBreeds());
+        setCurrentPage(1);
     };
 
 
