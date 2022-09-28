@@ -1,6 +1,6 @@
 .card {
     background-color: rgba(252, 234, 213, 0.741);
-    border: 4px solid rgba(90, 56, 5, 0.836);
+    border: 6px solid  #745b45b2;
     width: 400px;
     border-radius: 70px;
     color:rgba(25, 25, 95, 0.877);
@@ -8,7 +8,7 @@
 
 
 .img-card {
-    border: 4px solid rgba(36, 36, 197, 0.582);
+    border: 4px solid rgba(90, 56, 5, 0.836);
     border-radius: 100px;
     margin-top: 15px;
 }

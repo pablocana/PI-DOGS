@@ -28,34 +28,12 @@ export default function BreedDetail(props){
     
     console.log(props.match.params.id);
     console.log(detail);
-    /*  console.log(detail);
-    if (breedDb) {
-        let breedFromDb = allBreeds.filter(e => e.id === props.match.params.id)
-        
-        return(
-            <div className="container-detail">
-                <div>
-                    <Link to='/home'>
-                        <button className='btn-home-detail'>Press to Home!</button>
-                    </Link>
-                </div>
-                <div>
-                    <h1 className="title-detail">{breedFromDb[0].name}</h1>
-                    <img src={breedFromDb[0].image} alt="videogame" />
-                    <p>Height:  {breedFromDb[0].height}</p>
-                    <p>Weight:  {breedFromDb[0].weight}</p>
-                    <p>Life Span: {breedFromDb[0].life_span}</p>
-                    <p>Temperaments: {breedFromDb[0].temperaments.map(e => e.name).join(', ')}</p>
-                </div>
-            </div>
-        );
-    }else{ */
 
 
     return breedLoad?
     <>
         <h1 className="loading-detail">Loading...</h1>
-        <img className='img-loading-detail' src={loading} alt="loading" width='600px' height='800px'/>
+        <img className='img-loading-detail' src={loading} alt="Loading" width='600px' height='800px'/>
     </>
     :(
         <div className="detail">

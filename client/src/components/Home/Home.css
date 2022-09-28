@@ -85,14 +85,14 @@ place-items: center; */
     max-width: fit-content;
 }
 
-.paginated {
+/* .paginated {
     display: contents;
     justify-content: end;
     width: fit-content;
     padding: 10px;
     
 
-}
+} */
 
 
 .dog-cards {    

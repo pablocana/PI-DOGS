@@ -9,6 +9,15 @@
     margin-left: 120px;
 }
 
+.link-home-landing {
+    text-decoration: none;
+    color: black;
+}
+
+.link-home-landing:hover {
+    color: rgb(18, 133, 148);
+}
+
 .link-social{
     font-size: 50px;
     display: flex;

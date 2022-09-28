@@ -8,7 +8,11 @@ export default function NavBar(props) {
     return (
         <div className="nav-bar">
             <div className="title">
-                <p>PI-Dogs - Pablo Canavesi</p>
+                <p>
+                    <NavLink className="link-home-landing" exact to="/">
+                        PI-Dogs - Pablo Canavesi
+                    </NavLink>
+                </p>
             </div>
             <div className="link-social">
                 <a href="https://www.linkedin.com/in/pablo-canavesi-b1381485/" target='_blank' rel='noopener noreferrer' ><i className="fab fa-linkedin"></i></a>

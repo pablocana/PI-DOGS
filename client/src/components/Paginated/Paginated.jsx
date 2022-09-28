@@ -11,16 +11,18 @@ export default function Paginated({ breedsPerPage, allBreeds, paginate }) {
     };
 
     return (
-        <nav>
-            <ul className="paginated-bar">
-                {
-                    pageNumbers && pageNumbers.map(number => (
-                        <li className="number" key={number}>
-                            <button onClick={() => paginate(number)}>{number}</button>
-                        </li>
-                    )) 
-                }
-            </ul>
-        </nav>
+        <div className="paginated-container">
+            <nav>
+                <ul className="paginated-bar">
+                    {
+                        pageNumbers && pageNumbers.map(number => (
+                            <li className="number" key={number}>
+                                <button onClick={() => paginate(number)}>{number}</button>
+                            </li>
+                        )) 
+                    }
+                </ul>
+            </nav>
+        </div>
     )
 }

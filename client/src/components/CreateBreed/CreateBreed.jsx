@@ -35,7 +35,7 @@ function validate(input){
     const regexNumberLife_span = /\d\d/;
     //const regexUrl = /(http[s]*:\/\/)([a-z\-_0-9\/.]+)\.([a-z.]{2,3})\/([a-z0-9\-_\/._~:?#\[\]@!$&'()*+,;=%]*)([a-z0-9]+\.)(jpg|jpeg|png)/i;
 
-    if(!input.name /* || input.name !== regexName.test(input.name )*/){                            // si en mi estado local name=null => en mi object.name= msg.
+    if(!input.name /* || input.name !== regexName.test(input.name )*/){                   // si en mi estado local name=null => en mi object.name= msg.
         errors.name = 'Name is required, please use only letters';
         setButtonEnabled(false);
     }else if(!regexName.test(input.name)){

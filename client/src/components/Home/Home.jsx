@@ -10,7 +10,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import SortBar from "../SortBar/SortBar";
 import FilterBar from "../FilterBar/FilterBar";
 import Card from "../Card/Card";
-//import  back_home_img  from '../../assets/homeback.jpg'
+
 
 
 export default function Home() {
@@ -90,7 +90,6 @@ export default function Home() {
 
         return(
             <div className="home">
-                {/*<img src={back_home_img} width='100%' height='100%' alt="" />*/}
                 <div className="nav">
                     <NavBar/>
                 </div>
