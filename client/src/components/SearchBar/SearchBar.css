@@ -35,4 +35,5 @@
 .btn-search:hover{
     background-color: white;
     color: rgb(18, 133, 148);
+    border: 3px solid black;
 }

@@ -67,15 +67,12 @@
     border: 3px solid black;
 }
 
-.active {
-    /* background-color: var(rgb(31, 8, 243)); */
-}
-
 .list-item:hover{
-    border-radius: 20px;
-    background-color: white;
+    transform: scale(110%);
+    /* background-color: white; */
     color: rgb(18, 133, 148);
     font-weight: bold;
+    
 }
 
 
