@@ -22,7 +22,7 @@ const { conn } = require('./src/db.js');
 
 // Syncing all the models at once.
 conn.sync({ force: false}).then(() => {
-  server.listen(3001, () => {
+  server.listen(process.env.PORT, () => {               // heroku crea una variable PORT por eso en vez de poner 3001 creamos la PORT en .env.
     console.log('%s WORKING RIGHT, listening at 3001'); // eslint-disable-line no-console
   });
 });

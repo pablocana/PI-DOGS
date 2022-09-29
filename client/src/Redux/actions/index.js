@@ -4,7 +4,7 @@ import axios from "axios";
 export function getBreeds(){
     return async function(dispatch){
         // aca es donde sucede toda la conexion entre el front y el back.
-        var json = await axios.get("http://localhost:3001/dogs/");       
+        var json = await axios.get("/dogs/");       // http://localhost:3001
         //axios x default te hace el get 
         return dispatch({ 
             type:'GET_BREEDS',
@@ -16,7 +16,7 @@ export function getBreeds(){
 
 export function getTemps(){
     return async function(dispatch){
-        var json = await axios.get("http://localhost:3001/temperaments");
+        var json = await axios.get("/temperaments");
         return dispatch({
             type: 'GET_TEMPS',
             payload: json.data
@@ -61,7 +61,7 @@ export function searchBreed(name) {
     return async function(dispatch) {
 
         try{
-            var json = await axios.get(`http://localhost:3001/dogs?name=${name}`);
+            var json = await axios.get(`/dogs?name=${name}`);
             return dispatch({
                 type: 'SEARCH_BREED',
                 payload: json.data
@@ -76,7 +76,7 @@ export function searchBreed(name) {
 
 export function createBreed(payload) {                             
     return async function(dispatch) {
-        var json = await axios.post('http://localhost:3001/dogs/', payload);            // aca le digo que en esta ruta, quiero hacer un post del payload.
+        var json = await axios.post('/dogs/', payload);            // aca le digo que en esta ruta, quiero hacer un post del payload.
         return json;                                                                    // no usamos el dispatch.
     }
 }
@@ -84,7 +84,7 @@ export function createBreed(payload) {
 
 export function getDetail(id) {
     return async function(dispatch) {
-        var json = await axios.get(`http://localhost:3001/dogs/${id}`);
+        var json = await axios.get(`/dogs/${id}`);
         return dispatch({
             type: 'GET_DETAILS',
             payload: json.data

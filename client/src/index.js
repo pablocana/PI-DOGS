@@ -5,7 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import { store } from "./Redux/store"
+import axios from 'axios';
+import dotenv from "dotenv";
+dotenv.config();                //deploy
 
+axios.defaults.baseURL = process.env.REACT_APP_API || 'http://localhost:3001';    //deploy  (set axios la prop default URL)  // creamos la variable de entorno si no esta la definimos en el codigo. 
 
 ReactDOM.render(
   <Provider store={store} >
