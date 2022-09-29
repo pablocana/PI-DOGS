@@ -112,5 +112,13 @@ place-items: center; */
 
 .link-card:hover {
     transform: scale(110%);
+    /*MEJORAR BOX-SHADOW// NO ENCUADRA BN  */
+        /* box-shadow:  0 0 .2rem #fff,
+        0 0 .2rem #fff,
+        0 0 2rem #196360,
+        0 0 0.8rem #1d3d3c,
+        0 0 2.8rem #263f3e,
+        inset 0 0 1.3rem #070808;
+        border-radius: 70px; */
     opacity: 1;
 }

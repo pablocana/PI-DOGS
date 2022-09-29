@@ -21,7 +21,7 @@ export default function Home() {
     const allBreeds = useSelector((state) => state.breeds); // => es lo mismo que el mapStateToProps.
     
 
-    //const [temps, setTemps] = useState([]);
+    
     const [render, setRender] = useState(''); // estado Render.
     
     //PAGINADO
@@ -54,7 +54,7 @@ export default function Home() {
     };
 
 
-//FILTERS: // corregir filtrado en DB cn sort.
+//FILTERS: 
 
 
     function handleOriginFilter(e) {
@@ -118,7 +118,7 @@ export default function Home() {
                     {
                     currentBreeds && currentBreeds.map (e => {
                         return (
-                            <Link className='link-card' to={"/detail/" + e.id} key={e.id}>
+                            <Link className='link-card' to={"/detail/" + e.id} key={e.id}>      {/* xq le pasamos el key */}
                                 <Card
                                 key={e.id}
                                 id={e.id}
