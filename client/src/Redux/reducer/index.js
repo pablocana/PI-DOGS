@@ -79,26 +79,21 @@ function rootReducer (state = initialState, action){
                     breeds: sortedBreeds
                 }
         case 'SORT_BY_WEIGHT':
-            //let weightBreeds = state.allBreeds.map(e =>e.weight).split(' - ');
-            
-            let weightBreeds = state.allBreeds.filter(e => e.weight.length === 2);    
+            let weightBreeds = state.allBreeds.filter(e => e.weight.length > 1);    
             //console.log(weightBreeds)
-            // let weightBreeds = state.allBreeds;
-            // weightBreeds = weightBreeds.filter(e => e.weight.length > 4).map(e=> e.weight.split(' - '));
-            //weightBreeds = weightBreeds.map(e => [e.weight[0]*1,e.weight[1]*1])
                 
                 if(action.payload === 'MAX') {
                     weightBreeds = weightBreeds.sort(function(a, b){
                         return b.weight[1] - a.weight[1];
                     });
                 };
-                //console.log(weightBreeds)
+                
                 if(action.payload === 'MIN'){
                     weightBreeds = weightBreeds.sort(function(a, b) {
                         return a.weight[0] - b.weight[0];
                     }) ;       
                 };
-                //console.log(weightBreeds)
+                
             return {
                 ...state,
                 breeds: weightBreeds
