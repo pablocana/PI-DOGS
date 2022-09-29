@@ -44,7 +44,7 @@ export default function BreedDetail(props){
             </div>
             <div className="detail-container">
                 <h1 className="title-detail">{detail.name}</h1>
-                <img className="img-detail" src={detail.image} alt="Dogui" />
+                <img className="img-detail" src={detail.image} alt={`Breed:${detail.id}`} />
                 <p className="detail-info">Height: {detail.height} cm</p>
                 {
                     isNaN(detail.id)?
