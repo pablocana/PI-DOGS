@@ -68,7 +68,6 @@ router.get('/dogs', async (req, res) => {
       const search = await axios.get(`https://api.thedogapi.com/v1/breeds/search?q=${name}`)
       //.data te trae siempre array. (recordar no existe array que sea undefined/null)
         .then(response => response.data.map(element =>{
-        // ver para hacerlo con destructuring.
           return {
             id: element.id,
             name: element.name,
@@ -129,7 +128,7 @@ router.post('/dogs', async(req, res) => {
     const newBreed = await Breed.create({name, height, weight, life_span, image, created_Db});
     // EL TEMPERAMENTO LO TENGO QUE ENCONTRAR EN UN MODELO QUE YA TENGO.
     const tempDb = await Temperament.findAll({where: {name: temperament}});
-    //A newBreed AGREGALE LOS TEMPERAMENTOS QUE COINCIDAN CON EL name DE tempDb. //addTemperament => metodo de sequelize.
+    //A newBreed le agregamos los temps //addTemperament => metodo de sequelize.
     newBreed.addTemperament(tempDb);
     return res.status(200).send(`New dog breed successfully created!`); 
   } catch (error) {
@@ -153,18 +152,17 @@ router.get('/temperaments', async (req, res) =>{
 });
 
 
-// DELETE (aun en desuso)
+// DELETE (pendiente)
 
 /* router.delete('/dogs/:id', async (req, res) => {
   const { id } = req.params;
   try {
-      let dog = await Breed.destroy({ where: { ID: id } });
+      let dog = await Breed.destroy({ where: { id: id } });
       return res.status(200).send("Dog's breed deleted successfully!");
   } catch (error) {
       return res.status(404).send(error);
   }
 }); */
-
 
 
 module.exports = router;

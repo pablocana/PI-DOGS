@@ -12,7 +12,7 @@ import loading from '../../assets/gifpaw.gif';
 export default function BreedDetail(props){
 
     const dispatch = useDispatch();
-    //const allBreeds = useSelector((state) => state.breeds);
+    
     const detail = useSelector((state)=> state.detail);
 
     const [breedLoad, setBreedLoad] = useState(true);

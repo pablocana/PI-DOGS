@@ -11,7 +11,7 @@ export default function CreateBreed({ setCurrentPage }){
     const dispatch = useDispatch();
     const history = useHistory();
     const temperaments = useSelector(state => state.temperaments);
-
+    const breeds = useSelector(state => state.breeds);
 
     const[input, setInput] = useState({
         name:'',
@@ -97,7 +97,6 @@ function validate(input){
             [e.target.name] : e.target.value         // estamos asignandole el valor a la prop e.target.name que corresponda con el name que me pasan.
         });
         //console.log(input);
-        //setRender('');
         setErrors(validate({                         // aca seteamos el estados errors.
             ...input,
             [e.target.name] : e.target.value
@@ -107,13 +106,13 @@ function validate(input){
 
 
     function handleSelect(e){
-    //const { value } = e.target;                       // podemos hacer destructuring del e.target, si lo vamos a usar varias veces dentro de la function.
-        if (input.temperament.includes(e.target.value)) // aca decimos que, si mi estado local input.temp... incluye el value, retorne un alert.
-        return alert("You've already selected that temperament");
+    //const { value } = e.target;                                                                                       // podemos hacer destructuring del e.target, si lo vamos a usar varias veces dentro de la function.
+        if (input.temperament.includes(e.target.value))     
+            return alert("You've already selected that temperament");
         
         setInput({
             ...input,
-            temperament: [...input.temperament, e.target.value] // aca me trae lo que ya habia y le concatena el target.value (voy guardando en un arreglo todo lo del select).
+            temperament: [...input.temperament, e.target.value]                                                         // (voy guardando en un arreglo todo lo del select).
         });
         setErrors(validate({
             ...input,
@@ -124,20 +123,21 @@ function validate(input){
 
     function handleSubmit(e){
         e.preventDefault();
-        //console.log(input);                  // hacemos aca el console.log xq...
-        //if (input.background_image === "") input.background_image = image;            // traer imagen default.
-        dispatch(createBreed(input))
-        alert("Dog breed successfully created!")
-        setInput({
-            name:'',
-            height:'', 
-            weight:'', 
-            life_span:'', 
-            image:'', 
-            temperament: [],
-        });
-        history.push("/home");               // el useHistory es un metodo del router, que sirve para redirijirme a la ruta que yo diga.
-        //setCurrentPage(23);
+        if(breeds.find(e => e.name.toLowerCase() === input.name.toLowerCase())){
+            return alert ('Breed already exists');
+        }else {
+            dispatch(createBreed(input))
+            alert("Dog breed successfully created!")
+            setInput({
+                name:'',
+                height:'', 
+                weight:'', 
+                life_span:'', 
+                image:'', 
+                temperament: [],
+            });
+            history.push("/home");                         
+        }
     };
 
     // CLEAR TEMP.
@@ -267,7 +267,7 @@ function validate(input){
                                     ))
                                 }
                             </select>
-                            <ul><li>{input.temperament.map(e=>e +" - ")}</li></ul>     {/* para renderizar cada cosa que marque del select */}
+                            <ul><li>{input.temperament.map(e=>e +" - ")}</li></ul>                                        {/* para renderizar cada e que marque del select */}
                             <button type='button' className="reset-temps" onClick={handleReset}>Clear Temperaments</button>    
                         </fieldset>
                     </div>

@@ -15,7 +15,8 @@ export default function FilterBar({ handleOriginFilter, handleTempsFilter }){
 
     // GET TEMPS.
     useEffect(() =>{
-        dispatch(getTemps()); 
+        let temp = dispatch(getTemps());
+        console.log(temp)
     }, [dispatch])
     
     

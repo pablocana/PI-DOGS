@@ -17,11 +17,14 @@ export default function Home() {
 
     const dispatch = useDispatch();
 
+    //ESTADOS
+    
+    
     //BREEDS STATE
     const allBreeds = useSelector((state) => state.breeds); // => es lo mismo que el mapStateToProps.
     
 
-    
+    //const [temps, setTemps] = useState([]);
     const [render, setRender] = useState(''); // estado Render.
     
     //PAGINADO
@@ -30,7 +33,7 @@ export default function Home() {
 
     const indexLast = currentPage * breedsPerPage; // 8 
     const indexFirst = indexLast - breedsPerPage; // 0
-    const currentBreeds = allBreeds.slice(indexFirst, indexLast); // aca toma desde el index 0 hasta 8. (el 8 no me lo toma, renderiza del 0 al 7 = 8)
+    const currentBreeds = allBreeds.slice(indexFirst, indexLast); // me devuelve una porcion de un arreglo, aca toma desde el index 0 hasta 8. (el 8 no me lo toma, renderiza del 0 al 7 = 8)
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -46,6 +49,7 @@ export default function Home() {
     },[dispatch]);                    // para q no se genere un loop inf.
 
 
+
 // RELOAD DOGS
     function handleClick(e){                           
         e.preventDefault();
@@ -54,7 +58,7 @@ export default function Home() {
     };
 
 
-//FILTERS: 
+//FILTERS: // corregir filtrado en DB cn sort.
 
 
     function handleOriginFilter(e) {
@@ -74,7 +78,7 @@ export default function Home() {
         e.preventDefault();
         dispatch(sortBreedsByName(e.target.value));
         setCurrentPage(1);
-        setRender(`Sort ${e.target.value}`) // me modifica el estado local y se rerenderiza. 
+        setRender(`Sort ${e.target.value}`) // me modifica el estado local y se rerenderiza. //VER DE QUE OTRA FORMA PUEDO RERENDER.
     }
 
     function handleSortWeight(e) {
@@ -94,7 +98,7 @@ export default function Home() {
                     <button className="reload" onClick={e => {handleClick(e)}}>Reload Dogs</button>
                 <div className="lateral-bar">
                     <div className="search">
-                        <SearchBar setCurrentPage={setCurrentPage} />
+                        <SearchBar setCurrentPage={setCurrentPage}/>
                     </div>
                     <div className="sorter">
                         <SortBar 
@@ -118,7 +122,7 @@ export default function Home() {
                     {
                     currentBreeds && currentBreeds.map (e => {
                         return (
-                            <Link className='link-card' to={"/detail/" + e.id} key={e.id}>      {/* xq le pasamos el key */}
+                            <Link className='link-card' to={"/detail/" + e.id} key={e.id}>
                                 <Card
                                 key={e.id}
                                 id={e.id}

@@ -9,6 +9,7 @@ export default function SearchBar({ setCurrentPage }){
 const dispatch = useDispatch();
 
 
+
 const [name, setName] = useState("");
 
 
@@ -18,16 +19,14 @@ function handleInputName(e) {
 }
 
 function handleSubmitSearch(e) {
-    e.preventDefault();
     if(!name){
         alert('Please enter a name breed...');
     } else {
+        e.preventDefault();
         dispatch(searchBreed(name));
-        console.log(name);
         setName("");
         setCurrentPage(1);
-    }   
-      //  e.target.value=""; // ver porque no anda para limpiar el input.
+    }
 }
 
 
