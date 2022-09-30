@@ -11,7 +11,6 @@ export default function CreateBreed({ setCurrentPage }){
     const dispatch = useDispatch();
     const history = useHistory();
     const temperaments = useSelector(state => state.temperaments);
-    const breeds = useSelector(state => state.breeds);
 
     const[input, setInput] = useState({
         name:'',
@@ -123,21 +122,17 @@ function validate(input){
 
     function handleSubmit(e){
         e.preventDefault();
-        if(breeds.find(e => e.name.toLowerCase() === input.name.toLowerCase())){
-            return alert ('Breed already exists');
-        }else {
-            dispatch(createBreed(input))
-            alert("Dog breed successfully created!")
-            setInput({
-                name:'',
-                height:'', 
-                weight:'', 
-                life_span:'', 
-                image:'', 
-                temperament: [],
-            });
-            history.push("/home");                         
-        }
+        dispatch(createBreed(input))
+        alert("Dog breed successfully created!")
+        setInput({
+            name:'',
+            height:'', 
+            weight:'', 
+            life_span:'', 
+            image:'', 
+            temperament: [],
+        });
+        history.push("/home");                         
     };
 
     // CLEAR TEMP.

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { searchBreed } from "../../Redux/actions";
 
-export default function SearchBar({ setCurrentPage }){
+export default function SearchBar(){
 
 const dispatch = useDispatch();
 
@@ -19,14 +19,8 @@ function handleInputName(e) {
 }
 
 function handleSubmitSearch(e) {
-    if(!name){
-        alert('Please enter a name breed...');
-    } else {
-        e.preventDefault();
-        dispatch(searchBreed(name));
-        setName("");
-        setCurrentPage(1);
-    }
+    e.preventDefault();
+    dispatch(searchBreed(name));
 }
 
 
@@ -36,7 +30,6 @@ function handleSubmitSearch(e) {
             <input 
                 className="search-input"
                 type="text"
-                value={name} 
                 placeholder="Search Breed..."
                 autoComplete="off"
                 onChange={(e) => handleInputName(e)} 

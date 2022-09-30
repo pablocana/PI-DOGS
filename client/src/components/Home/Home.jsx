@@ -98,7 +98,7 @@ export default function Home() {
                     <button className="reload" onClick={e => {handleClick(e)}}>Reload Dogs</button>
                 <div className="lateral-bar">
                     <div className="search">
-                        <SearchBar setCurrentPage={setCurrentPage}/>
+                        <SearchBar />
                     </div>
                     <div className="sorter">
                         <SortBar 
