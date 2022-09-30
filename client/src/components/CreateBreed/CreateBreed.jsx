@@ -144,16 +144,6 @@ function validate(input){
     };
 
 
-    /* const handleDelete = (e) => {
-        setInput({
-        ...input,
-        temperament: input.temperament.filter((c) => c !== e.target.name),
-        });
-    }; */
-
-
-
-
     return(
         <div className="create-back">
             

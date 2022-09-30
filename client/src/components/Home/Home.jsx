@@ -24,7 +24,7 @@ export default function Home() {
     const allBreeds = useSelector((state) => state.breeds); // => es lo mismo que el mapStateToProps.
     
 
-    //const [temps, setTemps] = useState([]);
+    
     const [render, setRender] = useState(''); // estado Render.
     
     //PAGINADO
@@ -33,7 +33,7 @@ export default function Home() {
 
     const indexLast = currentPage * breedsPerPage; // 8 
     const indexFirst = indexLast - breedsPerPage; // 0
-    const currentBreeds = allBreeds.slice(indexFirst, indexLast); // me devuelve una porcion de un arreglo, aca toma desde el index 0 hasta 8. (el 8 no me lo toma, renderiza del 0 al 7 = 8)
+    const currentBreeds = allBreeds.slice(indexFirst, indexLast); // toma desde el index 0 hasta 8. (renderiza de 0 al 7 = 8)
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);

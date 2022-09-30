@@ -118,10 +118,10 @@ function rootReducer (state = initialState, action){
                 detail: action.payload
         }
 
-        case 'DELETE_BREED':
+        /* case 'DELETE_BREED':
             return {
                 ...state,
-            }
+            } */
 
         default:
             return state;
