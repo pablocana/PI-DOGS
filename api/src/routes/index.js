@@ -124,9 +124,7 @@ router.post('/dogs', async(req, res) => {
         created_Db } = req.body;
   
   try {
-    //NO LE PASO temperament XQ TENGO QUE HACER LA RELACION APARTE.
     const newBreed = await Breed.create({name, height, weight, life_span, image, created_Db});
-    // EL TEMPERAMENTO LO TENGO QUE ENCONTRAR EN UN MODELO QUE YA TENGO.
     const tempDb = await Temperament.findAll({where: {name: temperament}});
     //A newBreed le agregamos los temps //addTemperament => metodo de sequelize.
     newBreed.addTemperament(tempDb);
