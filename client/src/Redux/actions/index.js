@@ -92,3 +92,10 @@ export function getDetail(id) {
     }
 }
 
+
+export function deleteBreed(id) {
+    return async function(dispatch) {
+        var json = await axios.delete(`/breed/${id}`);
+        return json;
+    }
+}

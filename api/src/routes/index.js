@@ -152,6 +152,14 @@ router.get('/temperaments', async (req, res) =>{
 
 // DELETE (pendiente)
 
-
+router.delete('/dogs/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+      let dog = await Breed.destroy({ where: { id: id } });
+      return res.status(200).send("Dog's breed deleted successfully!");
+  } catch (error) {
+      return res.status(404).send(error);
+  }
+});
 
 module.exports = router;

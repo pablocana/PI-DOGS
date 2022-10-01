@@ -11,6 +11,7 @@ export default function CreateBreed({ setCurrentPage }){
     const dispatch = useDispatch();
     const history = useHistory();
     const temperaments = useSelector(state => state.temperaments);
+    const breeds = useSelector(state => state.allBreeds);
 
     const[input, setInput] = useState({
         name:'',
@@ -122,17 +123,21 @@ function validate(input){
 
     function handleSubmit(e){
         e.preventDefault();
-        dispatch(createBreed(input))
-        alert("Dog breed successfully created!")
-        setInput({
-            name:'',
-            height:'', 
-            weight:'', 
-            life_span:'', 
-            image:'', 
-            temperament: [],
-        });
-        history.push("/home");                         
+        if(breeds.find(e => e.name.toLowerCase() === input.name.toLowerCase())){
+            return alert('Breed name already exists');
+        }else{
+            dispatch(createBreed(input))
+                alert("Dog breed successfully created!")
+                setInput({
+                    name:'',
+                    height:'', 
+                    weight:'', 
+                    life_span:'', 
+                    image:'', 
+                    temperament: [],
+                });
+            history.push("/home");
+        };                         
     };
 
     // CLEAR TEMP.
@@ -142,6 +147,15 @@ function validate(input){
             temperament: []
         });
     };
+
+    function handleClean(e) {
+        //console.log(e);
+        console.log(e.target.value);
+        /* setInput({
+            ...input,
+            temperament: input.temperament.filter(e => e !== e.target.innerText)
+        }) */
+    }
 
 
     return(
@@ -252,7 +266,18 @@ function validate(input){
                                     ))
                                 }
                             </select>
-                            <ul><li>{input.temperament.map(e=>e +" - ")}</li></ul>                                        {/* para renderizar cada e que marque del select */}
+                            <ul>
+                                {
+                                    input.temperament?.map(e=>{
+                                        return (<li onClick={(e)=>handleClean(e)}
+                                        value={e}
+                                        key={e}
+                                        >{e}</li>)
+                                    }
+                                )
+                                }
+                                {/* <li onClick={(e)=>handleClean(e)}>{input.temperament.map(e=>e +" - ")}</li> */}
+                            </ul>                                        {/* para renderizar cada e que marque del select */}
                             <button type='button' className="reset-temps" onClick={handleReset}>Clear Temperaments</button>    
                         </fieldset>
                     </div>
